@@ -1,0 +1,6 @@
+#!/usr/bin/env bash
+
+# converts a square matrix of scores to a csv of pairs
+
+# $1 - square matrix, $2 - ground truth
+./csv2pairs.py $1 | ./filterIn.py /dev/stdin $2

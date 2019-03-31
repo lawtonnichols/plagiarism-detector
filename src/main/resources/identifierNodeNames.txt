@@ -1,0 +1,15 @@
+cpp14.CPP14Parser$Identifier
+cpp14.CPP14Parser$Unqualifiedid
+ecmascript.ECMAScriptParser$IdentifierExpression
+ecmascript.ECMAScriptParser$IdentifierName
+ecmascript.ECMAScriptParser$ThisExpression
+golang.GolangParser$QualifiedIdent
+golang.GolangParser$OperandName
+java.JavaParser$VariableDeclaratorId
+java.JavaParser$Identifier
+java.JavaParser$EnumConstantName
+java.JavaParser$ClassOrInterfaceType
+java.JavaParser$QualifiedName
+java.JavaParser$CreatedName
+java.JavaParser$Primary
+

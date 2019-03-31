@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [ "$#" -lt 2 ]; then
+    echo "usage: $0" 'pairs_square ground_truth [--distance] [--already-pairs]'
+    exit 1
+fi
+
+ground_truth=$2
+pairs_square=$1
+distance=''
+already_pairs=false
+
+for var in "$@"
+do
+    if [ "$var" = "--distance" ]; then
+        distance='--distance'
+    fi
+    if [ "$var" = "--already-pairs" ]; then
+        already_pairs=true
+    fi
+done
+
+if [ "$already_pairs" = true ]; then
+    #sed 's/emre\/lab/lawtonnichols\/Desktop/g' $pairs_square | ./normalizeScores.py /dev/stdin | ./successStats.py /dev/stdin $ground_truth --no-header $distance
+    sed 's/emre\/lab/lawtonnichols\/Desktop/g' $pairs_square | ./successStats.py /dev/stdin $ground_truth --no-header $distance
+fi
+if [ "$already_pairs" = false ]; then
+    #sed 's/emre\/lab/lawtonnichols\/Desktop/g' $pairs_square | ./pairify /dev/stdin $ground_truth | ./normalizeScores.py /dev/stdin | ./successStats.py /dev/stdin $ground_truth --no-header $distance
+    sed 's/emre\/lab/lawtonnichols\/Desktop/g' $pairs_square | ./pairify /dev/stdin $ground_truth | ./successStats.py /dev/stdin $ground_truth --no-header $distance
+fi

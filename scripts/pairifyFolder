@@ -1,0 +1,12 @@
+#!/usr/bin/env bash
+
+# converts a square matrix of scores to a csv of pairs
+
+# $1 - input folder, $2 - ground truth, $3 - output folder
+for f in $1/*.csv
+do
+    #echo $f
+    #echo $3/$(basename $f)
+    echo ./pairify $f $2 '>' $3/$(basename $f)
+    ./pairify $f $2 > $3/$(basename $f)
+done
